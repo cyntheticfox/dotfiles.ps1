@@ -1,3 +1,6 @@
+# Set Environment Variables
+$ENV:SH = 'PS'
+
 # Create some basic aliases
 New-Alias -Name 'gpg' -Value 'C:\Program Files (x86)\GnuPG\bin\gpg.exe'
 New-Alias -Name 'edit' -Value 'vim'
