@@ -53,8 +53,11 @@ function github([string]$UserName, [string]$RepoName) {
 # Chocolatey profile
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
-  Import-Module "$ChocolateyProfile"
+    Import-Module "$ChocolateyProfile"
 }
 
 # Enable Starship prompt
-Invoke-Expression (&starship init powershell)
+try {
+    $ENV:STARSHIP_CONFIG = "$HOME\.starship"
+    Invoke-Expression (&starship init powershell)
+} catch {}

@@ -1,0 +1,17 @@
+# Global Prompt Variables
+add_newline = false
+scan_timeout = 10
+
+[username]
+format = "[$user]($style) in "
+show_always = true
+disabled = false
+
+[hostname]
+ssh_only = false
+format = "⟨[$hostname](bold green)⟩ in "
+disabled = false
+
+[directory]
+truncation_length = 3
+fish_style_pwd_dir_length = 1
