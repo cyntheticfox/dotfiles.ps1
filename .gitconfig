@@ -1,0 +1,35 @@
+# This file will need to be renamed to ".gitconfig" before use
+[user]
+    name = David Houston
+    email = houstdav000@gmail.com
+    signingkey = 70D7A6B5979CE408
+[gpg]
+    program = "C:\\Program Files (x86)\\GnuPG\\bin\\gpg.exe"
+[credential]
+    helper = cache --timeout 600
+[commit]
+    gpgsign = true
+[help]
+    autocorrect = 10
+[core]
+    editor = nvim
+    autocrlf = false
+    hideDotFiles = true
+    ignoreCase = true
+[init]
+    defaultBranch = main
+[alias]
+    l = log --abbrev-commit --pretty=oneline
+    lg = log --pretty=format:'%h %s' --graph
+    state = status -s --
+    unstage = reset HEAD --
+[gitflow "branch"]
+    master = main
+    develop = dev
+[gitflow "prefix"]
+    feature = feature/
+    bugfix = bugfix/
+    release = release/
+    hotfix = hotfix/
+    support = support/
+    versiontag = v
