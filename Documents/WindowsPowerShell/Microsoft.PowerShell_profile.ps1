@@ -11,6 +11,11 @@ New-Alias -Name 'vscode' -Value 'code'
 New-Alias -Name 'vi' -Value 'vim'
 New-Alias -Name 'vim' -Value 'nvim'
 
+# Function for la
+function la() {
+    (ls) + (ls -Hidden) + (ls -System)
+}
+
 # Git Functions (inspired by joseluisq/gitnow on github)
 function state() {
     git status -s
