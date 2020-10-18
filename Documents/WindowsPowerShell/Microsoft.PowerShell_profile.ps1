@@ -14,9 +14,18 @@ New-Alias -Name 'vscode' -Value 'code'
 New-Alias -Name 'vi' -Value 'vim'
 New-Alias -Name 'vim' -Value 'nvim'
 
+Set-Alias -Name 'l' -Value 'Get-ChildItem'
+
+# Set up Get-ChildItemColor
+if (Get-Module -ListAvailable -Name get-childitemcolor) {
+    Import-Module Get-ChildItemColor
+
+    Set-Alias -Name 'ls' -Value 'Get-ChildItemColorFormatWide' -option AllScope
+}
+
 # Function for la
 function la() {
-    (ls) + (ls -Hidden) + (ls -System)
+    (Get-ChildItem) + (Get-ChildItem -Hidden) + (Get-ChildItem -System)
 }
 
 # Git Functions (inspired by joseluisq/gitnow on github)
