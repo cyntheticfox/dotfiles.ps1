@@ -1,4 +1,5 @@
 # Create some basic aliases
+New-Alias -Name 'gpg' -Value 'C:\Program Files (x86)\GnuPG\bin\gpg.exe'
 New-Alias -Name 'edit' -Value 'vim'
 New-Alias -Name 'mono' -Value 'C:\Program Files\Mono\bin\mono.exe'
 New-Alias -Name 'MpCmdRun' -Value 'C:\Program Files\Windows Defender\MpCmdRun.exe'
