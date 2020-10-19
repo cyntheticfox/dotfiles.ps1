@@ -16,6 +16,7 @@
     autocrlf = false
     hideDotFiles = true
     ignoreCase = true
+    excludesFile = ".gitignore_global"
 [init]
     defaultBranch = main
 [alias]
