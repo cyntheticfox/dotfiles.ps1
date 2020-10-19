@@ -50,11 +50,11 @@ function commit-all() {
 }
 
 function pull() {
-    git pull
+    git pull @args
 }
 
 function push() {
-    git push
+    git push @args
 }
 
 function github([string]$RepoName) {
