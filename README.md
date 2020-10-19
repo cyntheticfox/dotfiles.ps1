@@ -15,11 +15,11 @@ Then run the PowerShell script to copy files.
 ```PowerShell
 .\install.ps1
 
-# For extra details, set the -Verbose flag to $True
-.\install.ps1 -Verbose $True
+# For extra details, set the -Verbose flag
+.\install.ps1 -Verbose
 
 # If you've already installed before or some of the files exist, overwrite with -Force
-.\install.ps1 -Force $True
+.\install.ps1 -Force
 ```
 
 ## Programs

@@ -1,6 +1,6 @@
 # install.ps1
 
-param([bool]$Force, [bool]$Verbose)
+param([switch]$Force, [switch]$Verbose)
 
 # Find all files
 $ParentPath = Resolve-Path -Path '.'
