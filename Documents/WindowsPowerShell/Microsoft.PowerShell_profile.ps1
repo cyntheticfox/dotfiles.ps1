@@ -42,11 +42,11 @@ function unstage() {
 }
 
 function commit() {
-    git commit
+    git commit @args
 }
 
 function commit-all() {
-    git commit -a
+    git commit -a @args
 }
 
 function pull() {
