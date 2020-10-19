@@ -1,0 +1,50 @@
+{
+    "Zowe-DS-Persistent": {
+        "persistence": true,
+        "favorites": [],
+        "history": [],
+        "sessions": [],
+        "fileHistory": [],
+        "searchHistory": []
+    },
+    "Zowe-USS-Persistent": {
+        "persistence": true,
+        "favorites": [],
+        "history": [],
+        "sessions": [],
+        "fileHistory": [],
+        "searchHistory": []
+    },
+    "Zowe-Jobs-Persistent": {
+        "persistence": true,
+        "favorites": [],
+        "history": [],
+        "sessions": [],
+        "fileHistory": [],
+        "searchHistory": []
+    },
+    "files.associations": {
+        "*.COBOL*": "cobol",
+        "*.COB*": "cobol",
+        "*.COBCOPY*": "cobol",
+        "*.COPYBOOK*": "cobol",
+        "*.COPY*": "cobol",
+        "*.PL1*": "pl1",
+        "*.PLI*": "pl1",
+        "*.INC*": "pl1",
+        "*.INCLUDE*": "pl1",
+        "*.JCL*": "jcl",
+        "*.ASM*": "hlasm",
+        "*.ASSEMBLE*": "hlasm",
+        "*.HLASM*": "hlasm",
+        "*.HLA*": "hlasm"
+    },
+    "zopeneditor.JAVA_HOME": "C:\\Program Files\\OpenJDK\\jdk-14.0.2",
+    "zopeneditor.cobol.tabstops": [
+
+        0,
+        6,
+        7,
+        11
+    ]
+}
