@@ -2,7 +2,7 @@
 [user]
     name = David Houston
     email = houstdav000@gmail.com
-    signingkey = 70D7A6B5979CE408
+    signingkey = 5960278CE235F821
 [gpg]
     program = "C:\\Program Files (x86)\\GnuPG\\bin\\gpg.exe"
 [credential]
@@ -12,7 +12,7 @@
 [help]
     autocorrect = 10
 [core]
-    editor = nvim
+    editor = code
     autocrlf = false
     hideDotFiles = true
     ignoreCase = true
