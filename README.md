@@ -24,7 +24,7 @@ Then run the PowerShell script to copy files.
 
 ## Programs
 
-I do a lot of stuff via [Chocolatey](https://chocolatey.org/) in Windows. Here are a few terminal tools I specifically use:
+I do a lot of stuff via [winget](https://github.com/microsoft/winget-cli) in Windows. Here are a few terminal tools I specifically use:
 
 - [alacritty](https://github.com/alacritty/alacritty)
 - [FiraCode Font](https://github.com/tonsky/FiraCode)
