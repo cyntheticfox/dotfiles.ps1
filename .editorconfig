@@ -1,0 +1,23 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+[*]
+indent_style = space
+indent_size = 4
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = false
+
+[*.md]
+trim_trailing_whitespace = false
+
+[Makefile]
+indent_style = tab
+indent_size = 8
+
+# Default to two spaces for data languages
+[*.{c,cpp,css,h,hpp,htm,html,js,json,nix,tf,ts,yml,yaml,xml,xhtml}]
+indent_style = space
+intent_size = 2
