@@ -3,9 +3,7 @@ $ENV:SH = 'PS'
 
 # Create some basic aliases
 New-Alias -Name 'gpg' -Value 'C:\Program Files (x86)\GnuPG\bin\gpg.exe'
-New-Alias -Name 'edit' -Value 'vim'
-New-Alias -Name 'mono' -Value 'C:\Program Files\Mono\bin\mono.exe'
-New-Alias -Name 'MpCmdRun' -Value 'C:\Program Files\Windows Defender\MpCmdRun.exe'
+New-Alias -Name 'edit' -Value 'Code'
 New-Alias -Name 'firefox' -Value 'C:\Program Files\Mozilla Firefox\firefox.exe'
 New-Alias -Name 'git-bash' -Value 'C:\Program Files\git\git-bash.exe'
 New-Alias -Name 'touch' -Value 'New-Item'
@@ -45,10 +43,6 @@ function commit() {
     git commit @args
 }
 
-function commit-all() {
-    git commit -a @args
-}
-
 function pull() {
     git pull @args
 }
@@ -75,6 +69,6 @@ if (Test-Path($ChocolateyProfile)) {
 
 # Enable Starship prompt
 try {
-    $ENV:STARSHIP_CONFIG = "$HOME\.starship"
+    $ENV:STARSHIP_CONFIG = "$HOME\.starship.toml"
     Invoke-Expression (&starship init powershell)
 } catch {}
