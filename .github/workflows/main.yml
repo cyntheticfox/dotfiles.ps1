@@ -6,4 +6,4 @@ jobs:
     name: A job to check PowerShell scripts
     steps:
       - uses: actions/checkout@v2
-      - uses: houstdav000/PSScriptAnalyzer-action@v0.1.0
+      - uses: houstdav000/PSScriptAnalyzer-action@v0.2.0
