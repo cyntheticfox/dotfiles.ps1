@@ -5,10 +5,10 @@ param([switch]$Force, [switch]$Verbose)
 # Find all files
 $ParentPath = Resolve-Path -Path '.'
 $DestPath = Resolve-Path -Path '~'
-$Excludes = @('LICENSE', 'README.md', 'install.ps1', '.gitattributes', '.git','.pre-commit-config.yaml')
+$Excludes = @('LICENSE', 'README.md', 'install.ps1', '.gitattributes', '.git', '.pre-commit-config.yaml')
 
 foreach ($file in ((Get-ChildItem -Path $ParentPath -Recurse -File -Exclude $Excludes) +
-                   (Get-ChildItem -Path $ParentPath -Recurse -File -Exclude $Excludes -Hidden))) {
+        (Get-ChildItem -Path $ParentPath -Recurse -File -Exclude $Excludes -Hidden))) {
     $RelativePath = Resolve-Path -Path $file.FullName -Relative
     $DestinationPath = Join-Path -Path $DestPath -ChildPath $RelativePath
 
