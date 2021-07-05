@@ -71,4 +71,5 @@ if (Test-Path($ChocolateyProfile)) {
 try {
     $ENV:STARSHIP_CONFIG = "$HOME\.starship.toml"
     Invoke-Expression (&starship init powershell)
-} catch {}
+}
+catch {}
