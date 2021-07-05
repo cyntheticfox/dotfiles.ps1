@@ -1,0 +1,9 @@
+on: [push]
+
+jobs:
+  analyze-pwsh:
+    runs-on: ubuntu-latest
+    name: A job to check PowerShell scripts
+    steps:
+      - uses: actions/checkout@v2
+      - uses: houstdav000/PSScriptAnalyzer-action@v0.1.0
