@@ -1,6 +1,6 @@
 # install.ps1
 
-param([switch]$Force, [switch]$Verbose)
+param([switch]$Force)
 
 # Find all files
 $ParentPath = Resolve-Path -Path '.'
@@ -13,15 +13,13 @@ foreach ($file in ((Get-ChildItem -Path $ParentPath -Recurse -File -Exclude $Exc
     $DestinationPath = Join-Path -Path $DestPath -ChildPath $RelativePath
 
     # If the file exists, and verbose is set, then inform the user
-    if ((Test-Path -Path $DestinationPath) -and $Verbose) {
-        Write-Host ('File exists: ' + $DestinationPath)
+    if (Test-Path -Path $DestinationPath) {
+        Write-Information ('File exists: ' + $DestinationPath)
     }
 
     # Don't overwrite files unless forced to
     if ((-not (Test-Path -Path $DestinationPath)) -or $Force) {
-        if ($Verbose) {
-            Write-Host ('Writing: ' + $DestinationPath)
-        }
+        Write-Verbose ('Writing: ' + $DestinationPath)
 
         # Create parent directories if they don't exist
         $ParentDir = (Split-Path -Path $DestinationPath -Parent)
@@ -30,6 +28,6 @@ foreach ($file in ((Get-ChildItem -Path $ParentPath -Recurse -File -Exclude $Exc
         }
 
         # Write files forcefully
-        cp -Path $file -Destination $DestinationPath -Force
+        Copy-Item -Path $file -Destination $DestinationPath -Force
     }
 }
