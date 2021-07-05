@@ -66,10 +66,3 @@ $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
     Import-Module "$ChocolateyProfile"
 }
-
-# Enable Starship prompt
-try {
-    $ENV:STARSHIP_CONFIG = "$HOME\.starship.toml"
-    Invoke-Expression (&starship init powershell)
-}
-catch {}
