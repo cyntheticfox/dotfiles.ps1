@@ -30,6 +30,6 @@ foreach ($file in ((Get-ChildItem -Path $ParentPath -Recurse -File -Exclude $Exc
         }
 
         # Write files forcefully
-        Copy-Item -Path $file -Destination $DestinationPath -Force
+        cp -Path $file -Destination $DestinationPath -Force
     }
 }
