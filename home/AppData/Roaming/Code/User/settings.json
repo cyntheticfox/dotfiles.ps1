@@ -1,175 +1,101 @@
 {
-  "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "python.jediEnabled": false,
-  "python.insidersChannel": "off",
-  "vsicons.dontShowNewVersionMessage": true,
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": true,
   "editor.fontFamily": "'CaskaydiaCove NF', Monospace",
+  "editor.fontSize": 14,
   "editor.renderWhitespace": "boundary",
+  "editor.rulers": [
+    80
+  ],
+  "editor.suggest.preview": true,
+  "editor.suggestSelection": "first",
+  "editor.tabCompletion": "onlySnippets",
   "editor.wordWrap": "bounded",
   "editor.wordWrapColumn": 120,
-  "editor.rulers": [
-    80,
-    120
-  ],
-  "editor.tabCompletion": "onlySnippets",
   "editor.wrappingIndent": "indent",
-  "editor.cursorBlinking": "smooth",
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
-  "latex-workshop.view.pdf.viewer": "tab",
-  "latex-workshop.bibtex-format.tab": "4 spaces",
-  "latex-workshop.latex.tools": [
-    {
-      "name": "latexmk",
-      "command": "C:\\Program Files\\MiKTeX 2.9\\miktex\\bin\\x64\\latexmk.exe",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-pdf",
-        "-outdir=%OUTDIR%",
-        "%DOC%"
-      ],
-      "env": {}
-    },
-    {
-      "name": "lualatexmk",
-      "command": "C:\\Program Files\\MiKTeX 2.9\\miktex\\bin\\x64\\latexmk.exe",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-lualatex",
-        "-outdir=%OUTDIR%",
-        "%DOC%"
-      ],
-      "env": {}
-    },
-    {
-      "name": "latexmk_rconly",
-      "command": "C:\\Program Files\\MiKTeX 2.9\\miktex\\bin\\x64\\latexmk.exe",
-      "args": [
-        "%DOC%"
-      ],
-      "env": {}
-    },
-    {
-      "name": "pdflatex",
-      "command": "C:\\Program Files\\MiKTeX 2.9\\miktex\\bin\\x64\\pdflatex.exe",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "%DOC%"
-      ],
-      "env": {}
-    },
-    {
-      "name": "bibtex",
-      "command": "C:\\Program Files\\MiKTeX 2.9\\miktex\\bin\\x64\\bibtex.exe",
-      "args": [
-        "%DOCFILE%"
-      ],
-      "env": {}
-    },
-    {
-      "name": "rnw2pdf",
-      "command": "Rscript",
-      "args": [
-        "-e",
-        "knitr::knit2pdf('%DOCFILE%')"
-      ],
-      "env": {}
-    }
-  ],
-  "latex-workshop.latex.autoBuild.run": "never",
-  "git.enableSmartCommit": true,
-  "git.confirmSync": false,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
   "git.alwaysSignOff": true,
   "git.autofetch": true,
+  "git.confirmSync": false,
   "git.enableCommitSigning": true,
-  "workbench.iconTheme": "vscode-icons",
-  "latex-workshop.message.update.show": false,
-  "redhat.telemetry.enabled": true,
-  "vs-kubernetes": {
-    "vscode-kubernetes.helm-path.windows": "C:\\Users\\david\\.vs-kubernetes\\tools\\helm\\windows-amd64\\helm.exe",
-    "vscode-kubernetes.minikube-path.windows": "C:\\Users\\david\\.vs-kubernetes\\tools\\minikube\\windows-amd64\\minikube.exe"
-  },
-  "tabnine.experimentalAutoImports": true,
-  "editor.fontSize": 12,
-  "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[yaml]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml"
-  },
-  "workbench.colorTheme": "One Dark Pro",
+  "git.enableSmartCommit": true,
+  "git.path": "C:\\Program Files\\Git\\bin\\git.exe",
+  "powershell.codeFormatting.autoCorrectAliases": true,
+  "powershell.codeFormatting.ignoreOneLineBlock": false,
+  "powershell.codeFormatting.newLineAfterCloseBrace": false,
+  "powershell.codeFormatting.preset": "OTBS",
+  "powershell.codeFormatting.pipelineIndentationStyle": "IncreaseIndentationForFirstPipeline",
+  "powershell.codeFormatting.trimWhitespaceAroundPipe": true,
+  "powershell.codeFormatting.useConstantStrings": true,
+  "powershell.codeFormatting.useCorrectCasing": true,
+  "powershell.codeFormatting.whitespaceBetweenParameters": true,
+  "powershell.integratedConsole.showOnStartup": false,
+  "python.jediEnabled": false,
+  "python.insidersChannel": "off",
   "remote.SSH.remotePlatform": {
     "windev": "windows"
   },
+  "terminal.integrated.automationProfile.windows": {
+    "path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "args": [
+      "-ExecutionPolicy \"Unrestricted\"",
+      "-NoLogo",
+      "-NoProfile"
+    ],
+    "icon": "clippy"
+  },
+  "terminal.integrated.defaultProfile.windows": "Standard PowerShell Core",
   "terminal.integrated.profiles.windows": {
-    "PowerShell": {
-      "source": "PowerShell",
-      "icon": "terminal-powershell"
-    },
-    "Command Prompt": {
-      "path": [
-        "${env:windir}\\Sysnative\\cmd.exe",
-        "${env:windir}\\System32\\cmd.exe"
+    "Command Prompt": null,
+    "Git Bash": null,
+    "PowerShell": null,
+    "NoProfile PowerShell Core": {
+      "path": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+      "args": [
+        "-NoExit",
+        "-NoLogo",
+        "-NoProfile"
       ],
-      "args": [],
-      "icon": "terminal-cmd"
+      "color": "terminal.ansiBlack"
     },
-    "Git Bash": {
-      "source": "Git Bash"
+    "NoProfile WindowsPowerShell": {
+      "path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "args": [
+        "-NoExit",
+        "-NoLogo",
+        "-NoProfile"
+      ],
+      "color": "terminal.ansiBlue"
+    },
+    "Standard PowerShell Core": {
+      "path": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+      "args": [
+        "-NoExit",
+        "-NoLogo"
+      ],
+      "color": "terminal.ansiMagenta"
+    },
+    "Standard WindowsPowerShell": {
+      "path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "args": [
+        "-NoExit",
+        "-NoLogo"
+      ],
+      "color": "terminal.ansiWhite"
     }
   },
-  "better-comments.tags": [
-    {
-      "tag": "!",
-      "color": "#FF2D00",
-      "strikethrough": false,
-      "underline": false,
-      "backgroundColor": "transparent",
-      "bold": false,
-      "italic": false
-    },
-    {
-      "tag": "?",
-      "color": "#3498DB",
-      "strikethrough": false,
-      "underline": false,
-      "backgroundColor": "transparent",
-      "bold": false,
-      "italic": false
-    },
-    {
-      "tag": "//",
-      "color": "#474747",
-      "strikethrough": true,
-      "underline": false,
-      "backgroundColor": "transparent",
-      "bold": false,
-      "italic": false
-    },
-    {
-      "tag": "todo",
-      "color": "#FF8C00",
-      "strikethrough": false,
-      "underline": false,
-      "backgroundColor": "transparent",
-      "bold": false,
-      "italic": false
-    },
-    {
-      "tag": "*",
-      "color": "#98C379",
-      "strikethrough": false,
-      "underline": false,
-      "backgroundColor": "transparent",
-      "bold": false,
-      "italic": false
-    }
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.preferredDarkColorTheme": "One Dark Pro Darker",
+  "vsicons.dontShowNewVersionMessage": true,
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "yaml.customTags": [
+    "!encrypted/pkcs1-oaep scalar",
+    "!vault scalar"
   ]
 }
