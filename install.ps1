@@ -1,33 +1,106 @@
 # install.ps1
+#Requires -Version '4.0'
+[CmdletBinding()]
+[OutputType([System.Io.DirectoryInfo[]])]
+param(
+  [Parameter(
+    Position = 0
+  )]
+  [ValidateNotNullOrEmpty()]
+  [ValidateScript({
+      $_.ForEach({
+          $item = Get-Item $_
+          $item -Is [System.IO.DirectoryInfo]
+        })
+    })]
+  [String[]]
+  $Path = (Resolve-Path ".\home"),
 
-param([switch]$Force)
+  [Parameter(
+    Position = 1
+  )]
+  [ValidateNotNullOrEmpty()]
+  [ValidateScript({
+      $_.ForEach({
+          $item = Get-Item $_
+          $item -Is [System.IO.DirectoryInfo]
+        })
+    })]
+  [String[]]
+  $DestinationPath = (Resolve-Path $env:USERPROFILE),
+
+  [Parameter()]
+  [ValidateNotNull()]
+  [Switch]
+  $Force
+)
+
+function RecursiveCreateDir {
+  [CmdletBinding()]
+  [OutputType([System.IO.DirectoryInfo[]])]
+  param(
+    [Parameter(
+      Mandatory = $true,
+      Position = 0
+    )]
+    [ValidateNotNullOrEmpty()]
+    [String[]]
+    $Path
+  )
+
+  [System.IO.DirectoryInfo[]]$DirsCreated = @()
+
+  $DirsCreated += $Path.Where({-not (Test-Path (Split-Path $_ -Parent))}).ForEach({ RecursiveCreateDir (Split-Path $_ -Parent )})
+
+  $DirsCreated += New-Item $Path -ItemType 'Directory'
+
+  return $DirsCreated
+}
+
+function RecursiveCreateDirIfNE {
+  [CmdletBinding()]
+  [OutputType([System.IO.DirectoryInfo[]])]
+  param(
+    [Parameter(
+      Mandatory = $true,
+      Position = 0
+    )]
+    [ValidateNotNullOrEmpty()]
+    [String[]]
+    $Path
+  )
+
+  return $Path.Where({(-not (Test-Path $_))}).ForEach({ RecursiveCreateDir $_ })
+}
 
 # Find all files
-$ParentPath = Resolve-Path -Path '.'
-$DestPath = Resolve-Path -Path '~'
-$Excludes = @('LICENSE', 'README.md', 'install.ps1', '.gitattributes', '.git', '.pre-commit-config.yaml')
+[System.Collections.Hashtable[]]$PathArr = @()
 
-foreach ($file in ((Get-ChildItem -Path $ParentPath -Recurse -File -Exclude $Excludes) +
-        (Get-ChildItem -Path $ParentPath -Recurse -File -Exclude $Excludes -Hidden))) {
-    $RelativePath = Resolve-Path -Path $file.FullName -Relative
-    $DestinationPath = Join-Path -Path $DestPath -ChildPath $RelativePath
-
-    # If the file exists, and verbose is set, then inform the user
-    if (Test-Path -Path $DestinationPath) {
-        Write-Information ('File exists: ' + $DestinationPath)
+$null = $Path.ForEach({
+    foreach ($File in (Get-ChildItem -Attributes 'H,!H' $_ -Recurse -File)) {
+      $PathArr += @{ OrigPath = $File.FullName; ChildPath = $File.FullName.Replace($_, '')}
     }
+  })
 
-    # Don't overwrite files unless forced to
-    if ((-not (Test-Path -Path $DestinationPath)) -or $Force) {
-        Write-Verbose ('Writing: ' + $DestinationPath)
+foreach ($DestPath in $DestinationPath) {
+  $null = $PathArr.ForEach({
+      [String]$DestFilePath = "$DestPath\$($_.ChildPath)"
 
+      # If the file exists, and verbose is set, then inform the user
+      if (Test-Path $DestFilePath) {
+        Write-Information "File exists: $DestFilePath"
+      }
+
+      # Don't overwrite files unless forced to
+      if ((-not (Test-Path $DestFilePath)) -or $Force) {
         # Create parent directories if they don't exist
-        $ParentDir = (Split-Path -Path $DestinationPath -Parent)
-        If (-not (Test-Path -Path $ParentDir)) {
-            New-Item -Path $ParentDir -ItemType 'Directory'
-        }
+        $null = RecursiveCreateDirIfNE (Split-Path $DestFilePath -Parent)
 
         # Write files forcefully
-        Copy-Item -Path $file -Destination $DestinationPath -Force
-    }
+        Write-Verbose "Writing: $DestFilePath"
+        $null = Copy-Item $_.OrigPath $DestFilePath -Force
+      }
+    })
 }
+
+return Get-Item $DestinationPath

@@ -1,1 +1,2 @@
-*   text eol=crlf
+# Force CRLF for Windows
+* text eol=crlf

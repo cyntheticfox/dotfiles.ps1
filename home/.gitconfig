@@ -12,13 +12,16 @@
 [help]
     autocorrect = 10
 [core]
-    editor = code
-    autocrlf = false
+    autocrlf = true
+    editor = "nvim"
+    excludesFile = ".gitignore_global"
+    filemode = false
     hideDotFiles = true
     ignoreCase = true
-    excludesFile = ".gitignore_global"
 [init]
-    defaultBranch = main
+    defaultBranch = "main"
+[pull]
+    ff = "only"
 [alias]
     l = log --abbrev-commit --pretty=oneline
     lg = log --pretty=format:'%h %s' --graph
