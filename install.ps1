@@ -14,7 +14,7 @@ param(
         })
     })]
   [String[]]
-  $Path = (Resolve-Path ".\home"),
+  $Path = (Resolve-Path '.\home'),
 
   [Parameter(
     Position = 1
@@ -35,50 +35,14 @@ param(
   $Force
 )
 
-function RecursiveCreateDir {
-  [CmdletBinding()]
-  [OutputType([System.IO.DirectoryInfo[]])]
-  param(
-    [Parameter(
-      Mandatory = $true,
-      Position = 0
-    )]
-    [ValidateNotNullOrEmpty()]
-    [String[]]
-    $Path
-  )
-
-  [System.IO.DirectoryInfo[]]$DirsCreated = @()
-
-  $DirsCreated += $Path.Where({-not (Test-Path (Split-Path $_ -Parent))}).ForEach({ RecursiveCreateDir (Split-Path $_ -Parent )})
-
-  $DirsCreated += New-Item $Path -ItemType 'Directory'
-
-  return $DirsCreated
-}
-
-function RecursiveCreateDirIfNE {
-  [CmdletBinding()]
-  [OutputType([System.IO.DirectoryInfo[]])]
-  param(
-    [Parameter(
-      Mandatory = $true,
-      Position = 0
-    )]
-    [ValidateNotNullOrEmpty()]
-    [String[]]
-    $Path
-  )
-
-  return $Path.Where({(-not (Test-Path $_))}).ForEach({ RecursiveCreateDir $_ })
-}
+. $PSScriptRoot\scripts\functions\RecursiveCreateDirIfNE.ps1
 
 # Find all files
 [System.Collections.Hashtable[]]$PathArr = @()
 
 $null = $Path.ForEach({
     foreach ($File in (Get-ChildItem -Attributes 'H,!H' $_ -Recurse -File)) {
-      $PathArr += @{ OrigPath = $File.FullName; ChildPath = $File.FullName.Replace($_, '')}
+      $PathArr += @{ OrigPath = $File.FullName; ChildPath = $File.FullName.Replace($_, '') }
     }
   })
 
@@ -88,7 +52,7 @@ foreach ($DestPath in $DestinationPath) {
 
       # If the file exists, and verbose is set, then inform the user
       if (Test-Path $DestFilePath) {
-        Write-Information "File exists: $DestFilePath"
+        Write-Verbose "File exists: $DestFilePath"
       }
 
       # Don't overwrite files unless forced to
