@@ -8,10 +8,10 @@ $env:EDITOR = ''
 $null = Remove-Item 'alias:*' -Force
 
 # Fix broken env vars
-$null = (Get-ChildItem env:).Where({$_.Name -like '*(*)*'}).ForEach({@{ Name = $_.Name.Replace('(', '_').Replace(')', '_'); Value = $_.Value}}).Where({$_.Name -notin (Get-ChildItem 'env:*_*').Name}).ForEach({ New-Item -Path 'env:' -Name $_.Name -Value $_.Value})
+$null = (Get-ChildItem env:).Where({ $_.Name -like '*(*)*' }).ForEach({ @{ Name = $_.Name.Replace('(', '_').Replace(')', '_'); Value = $_.Value } }).Where({ $_.Name -notin (Get-ChildItem 'env:*_*').Name }).ForEach({ New-Item -Path 'env:' -Name $_.Name -Value $_.Value })
 
 # Add more drives
-$null = @(@{Name = 'HKCR'; PSProvider = 'Registry'; Root = 'HKEY_CLASSES_ROOT'}).Where({$_.Name -notin (Get-PSDrive).Name}).ForEach({New-PSDrive @_})
+$null = @(@{Name = 'HKCR'; PSProvider = 'Registry'; Root = 'HKEY_CLASSES_ROOT' }).Where({ $_.Name -notin (Get-PSDrive).Name }).ForEach({ New-PSDrive @_ })
 
 # Set window title
 $Host.UI.RawUI.WindowTitle = "PowerShell Core $($Host.Version.Major).$($Host.Version.Minor)"
@@ -48,8 +48,8 @@ if (Test-Path "$env:ProgramFiles\Git") {
     'wc',
     'xxd'
   ).ForEach({
-    New-Alias $_ "$env:ProgramFiles\Git\usr\bin\$($_).exe"
-  })
+      New-Alias $_ "$env:ProgramFiles\Git\usr\bin\$($_).exe"
+    })
 
   $env:EDITOR = 'vim'
 }
@@ -199,3 +199,25 @@ $WarningPreference = 'Inquire'
 $InformationPreference = 'Continue'
 $VerbosePreference = 'SilentlyContinue'
 $DebugPreference = 'SilentlyContinue'
+
+[String[]]$AppsAtLaunch = (Get-Command -Type Application).Name
+
+# Starship Hook
+if ($AppsAtLaunch -Contains 'starship.exe') {
+  Invoke-Expression (&starship init powershell)
+}
+
+# Zoxide Hook
+if ($AppsAtLaunch -Contains 'zoxide.exe') {
+  Invoke-Expression (& {
+    [String]$hook = ''
+
+    if ($PSVersionTable.PSVersion.Major -lt 6) {
+      $hook = 'prompt'
+    } else {
+      $hook = 'pwd'
+    }
+    (zoxide init --hook $hook 'powershell' | Out-String)
+  })
+}
+
