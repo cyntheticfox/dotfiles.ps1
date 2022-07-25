@@ -16,9 +16,9 @@ Set-Alias -Name 'l' -Value 'Get-ChildItem'
 
 # Set up Get-ChildItemColor
 if (Get-Module -ListAvailable -Name get-childitemcolor) {
-    Import-Module Get-ChildItemColor
+  Import-Module Get-ChildItemColor
 
-    Set-Alias -Name 'ls' -Value 'Get-ChildItemColorFormatWide' -option AllScope
+  Set-Alias -Name 'ls' -Value 'Get-ChildItemColorFormatWide' -Option AllScope
 }
 
 # Function for la
@@ -28,41 +28,41 @@ function la() {
 
 # Git Functions (inspired by joseluisq/gitnow on github)
 function state() {
-    git status -s
+  git status -s
 }
 
 function stage() {
-    git add .
+  git add .
 }
 
 function unstage() {
-    git reset .
+  git reset .
 }
 
 function commit() {
-    git commit @args
+  git commit @args
 }
 
 function pull() {
-    git pull @args
+  git pull @args
 }
 
 function push() {
-    git push @args
+  git push @args
 }
 
 function github([string]$RepoName) {
-    $GithubPath = "github:" + $RepoName
-    git clone --recurse-submodules -j8 $GithubPath
+  $GithubPath = 'github:' + $RepoName
+  git clone --recurse-submodules -j8 $GithubPath
 }
 
 function github([string]$UserName, [string]$RepoName) {
-    $GitHubPath = "github:" + $UserName + "/" + $RepoName
-    git clone --recurse-submodules -j8 $GithubPath
+  $GitHubPath = 'github:' + $UserName + '/' + $RepoName
+  git clone --recurse-submodules -j8 $GithubPath
 }
 
 # Chocolatey profile
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
-    Import-Module "$ChocolateyProfile"
+  Import-Module "$ChocolateyProfile"
 }
