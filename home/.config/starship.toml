@@ -1,0 +1,25 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+scan_timeout = 100
+
+format = "$all"
+
+[directory]
+fish_style_pwd_dir_length = 1
+
+[hostname]
+ssh_only = false
+format = "⟨[$ssh_symbol$hostname]($style)⟩ in "
+
+[shell]
+disabled = false
+powershell_indicator = 'pwsh'
+unknown_indicator = '?'
+
+[username]
+show_always = true
+
