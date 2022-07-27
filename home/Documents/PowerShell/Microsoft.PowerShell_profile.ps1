@@ -71,6 +71,7 @@ if ($null -eq $env:EDITOR -or '' -eq $env:EDITOR) {
 New-Alias 'alias' 'Get-Alias'
 New-Alias 'cat' 'Get-Content'
 New-Alias 'cd' 'Set-Location'
+New-Alias 'clear' 'Clear-Host'
 New-Alias 'cp' 'Copy-Item'
 New-Alias 'echo' 'Write-Host'
 New-Alias 'help' 'Get-Help'
