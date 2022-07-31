@@ -142,45 +142,9 @@ function pkill() {
 }
 
 # Git Functions
-function ga() {
-  git add @args
-}
-
-function gaa() {
-  git add --all @args
-}
-
-function gb() {
-  git branch @args
-}
-
-function gc() {
-  git commit @args
-}
-
-function gl() {
-  git pull @args
-}
-
-function gm() {
-  git merge @args
-}
-
-function gp() {
-  git push @args
-}
-
-function grh() {
-  git reset @args
-}
-
-function grhh() {
-  git reset --hard @args
-}
-
-function gsb() {
-  git status -sb @args
-}
+. "$env:LocalAppData\WinConfig\PowerShell\plugins\git-lfs.plugin.ps1"
+. "$env:LocalAppData\WinConfig\PowerShell\plugins\git.plugin.ps1"
+. "$env:LocalAppData\WinConfig\PowerShell\plugins\gitflow.plugin.ps1"
 
 function sha256sum() {
   (Get-FileHash -Algorithm SHA256 @args).Hash.ToLower()
@@ -188,6 +152,10 @@ function sha256sum() {
 
 function md5sum() {
   (Get-FileHash -Algorithm MD5 @args).Hash.ToLower()
+}
+
+function path() {
+  $env:PATH.Split(';')
 }
 
 # Chocolatey profile
@@ -221,4 +189,3 @@ if ($AppsAtLaunch -Contains 'zoxide.exe') {
     (zoxide init --hook $hook 'powershell' | Out-String)
   })
 }
-
