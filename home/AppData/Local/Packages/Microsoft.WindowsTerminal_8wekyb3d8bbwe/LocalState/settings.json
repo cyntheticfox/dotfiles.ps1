@@ -33,15 +33,22 @@
     "defaults": {},
     "list": [
       {
+        "colorScheme": "Campbell Powershell",
         "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoLogo",
+        "font": {
+          "face": "CaskaydiaCove NF"
+        },
         "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
         "hidden": false,
-        "name": "Windows PowerShell"
+        "name": "Windows PowerShell",
+        "opacity": 85,
+        "suppressApplicationTitle": true,
+        "useAcrylic": true
       },
       {
         "commandline": "%SystemRoot%\\System32\\cmd.exe",
         "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-        "hidden": false,
+        "hidden": true,
         "name": "Command Prompt"
       },
       {
@@ -52,17 +59,44 @@
       },
       {
         "commandline": "\"C:\\Program Files\\PowerShell\\7\\pwsh.exe\" -NoLogo",
+        "font": {
+          "face": "CaskaydiaCove NF"
+        },
         "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
         "hidden": false,
-        "name": "PowerShell",
-        "source": "Windows.Terminal.PowershellCore"
+        "name": "PowerShell Core",
+        "opacity": 85,
+        "source": "Windows.Terminal.PowershellCore",
+        "suppressApplicationTitle": true,
+        "useAcrylic": true
       },
       {
         "colorScheme": "Nord",
+        "font": {
+          "face": "FiraCode Nerd Font Mono"
+        },
         "guid": "{c397f356-5e7b-55bc-956b-8cb4b9762c26}",
         "hidden": false,
-        "name": "NixOS",
-        "source": "Windows.Terminal.Wsl"
+        "name": "NixOS WSL",
+        "opacity": 85,
+        "source": "Windows.Terminal.Wsl",
+        "suppressApplicationTitle": true,
+        "useAcrylic": true
+      },
+      {
+        "colorScheme": "Nord",
+        "commandline": "C:\\WINDOWS\\system32\\wsl.exe -d Ubuntu",
+        "font": {
+          "face": "FiraCode Nerd Font Mono"
+        },
+        "guid": "{7e28743a-bc10-41ad-bdec-92c2b85bf6d6}",
+        "hidden": false,
+        "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
+        "name": "Ubuntu WSL",
+        "opacity": 85,
+        "startingDirectory": "~",
+        "suppressApplicationTitle": true,
+        "useAcrylic": true
       }
     ]
   },
