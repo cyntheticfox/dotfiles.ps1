@@ -2,8 +2,9 @@
   "editor.acceptSuggestionOnEnter": "off",
   "editor.cursorBlinking": "smooth",
   "editor.cursorSmoothCaretAnimation": true,
-  "editor.fontFamily": "'CaskaydiaCove NF', Monospace",
-  "editor.fontSize": 14,
+  "editor.fontFamily": "'CaskaydiaCove NF', Consolas, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 12,
   "editor.renderWhitespace": "boundary",
   "editor.rulers": [
     80
@@ -19,24 +20,26 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
-  "git.alwaysSignOff": true,
+  "git.alwaysSignOff": false,
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.enableCommitSigning": true,
   "git.enableSmartCommit": true,
   "git.path": "C:\\Program Files\\Git\\bin\\git.exe",
+  "markdown.marp.exportType": "pptx",
+  "oneDarPro.bold": true,
   "powershell.codeFormatting.autoCorrectAliases": true,
   "powershell.codeFormatting.ignoreOneLineBlock": false,
   "powershell.codeFormatting.newLineAfterCloseBrace": false,
-  "powershell.codeFormatting.preset": "OTBS",
   "powershell.codeFormatting.pipelineIndentationStyle": "IncreaseIndentationForFirstPipeline",
+  "powershell.codeFormatting.preset": "OTBS",
   "powershell.codeFormatting.trimWhitespaceAroundPipe": true,
   "powershell.codeFormatting.useConstantStrings": true,
   "powershell.codeFormatting.useCorrectCasing": true,
   "powershell.codeFormatting.whitespaceBetweenParameters": true,
   "powershell.integratedConsole.showOnStartup": false,
-  "python.jediEnabled": false,
   "python.insidersChannel": "off",
+  "python.jediEnabled": false,
   "remote.SSH.remotePlatform": {
     "windev": "windows"
   },
@@ -89,13 +92,17 @@
       "color": "terminal.ansiWhite"
     }
   },
+  "vsicons.dontShowNewVersionMessage": true,
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "window.zoomLevel": -1,
   "workbench.colorTheme": "One Dark Pro Darker",
   "workbench.iconTheme": "vscode-icons",
   "workbench.preferredDarkColorTheme": "One Dark Pro Darker",
-  "vsicons.dontShowNewVersionMessage": true,
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "yaml.customTags": [
     "!encrypted/pkcs1-oaep scalar",
     "!vault scalar"
-  ]
+  ],
+  "[git-rebase]": {
+    "workbench.editor.restoreViewState": false
+  }
 }
