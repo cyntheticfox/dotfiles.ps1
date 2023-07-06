@@ -1,39 +1,45 @@
 # This file will need to be renamed to ".gitconfig" before use
 [user]
-    name = David Houston
-    email = houstdav000@gmail.com
-    signingkey = 5960278CE235F821
+  name = "Cynthia Fox"
+  email = "cyntheticfox@gh0st.sh"
+  signingkey = "5960278CE235F821!"
 [gpg]
-    program = "C:\\Program Files (x86)\\GnuPG\\bin\\gpg.exe"
+  program = "\"C:\\Program Files\\Git\\usr\\bin\\gpg.exe\""
 [credential]
-    helper = cache --timeout 600
+  helper = cache --timeout 600
 [commit]
-    gpgsign = true
+  gpgsign = true
 [help]
-    autocorrect = 10
+  autocorrect = 10
 [core]
-    autocrlf = true
-    editor = "nvim"
-    excludesFile = ".gitignore_global"
-    filemode = false
-    hideDotFiles = true
-    ignoreCase = true
+  autocrlf = true
+  editor = "nvim"
+  excludesFile = ".gitignore_global"
+  filemode = false
+  hideDotFiles = true
+  ignoreCase = true
+  sshCommand = "\"C:\\Program Files\\Git\\usr\\bin\\ssh.exe\""
 [init]
-    defaultBranch = "main"
+  defaultBranch = "main"
 [pull]
-    ff = "only"
+  ff = "only"
 [alias]
-    l = log --abbrev-commit --pretty=oneline
-    lg = log --pretty=format:'%h %s' --graph
-    state = status -s --
-    unstage = reset HEAD --
+  l = "log --abbrev-commit --pretty=oneline"
+  lg = "log --pretty=format:'%h %s' --graph"
+  state = "status -sb --"
+  unstage = "reset HEAD --"
 [gitflow "branch"]
-    master = main
-    develop = dev
+  master = "main"
+  develop = "dev"
 [gitflow "prefix"]
-    feature = feature/
-    bugfix = bugfix/
-    release = release/
-    hotfix = hotfix/
-    support = support/
-    versiontag = v
+  feature = "feature/"
+  bugfix = "patch/"
+  release = "release/"
+  hotfix = "hotfix/"
+  support = "support/"
+  versiontag = "v"
+[filter "lfs"]
+  smudge = "git-lfs smudge -- %f"
+  process = "git-lfs filter-process"
+  required = true
+  clean = "git-lfs clean -- %f"
